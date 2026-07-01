@@ -1,9 +1,16 @@
+
 console.log("Alumni Network Platform");
 const darkBtn = document.getElementById("darkBtn");
 
-darkBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-});
+if(darkBtn){
+
+    darkBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+    });
+
+}
 
 const searchInput =
 document.getElementById("searchInput");
@@ -64,6 +71,8 @@ name === "" ||
 email === "" ||
 message === ""
 ){
+     
+
 
 alert(
 "Please Fill All Fields"
@@ -119,3 +128,73 @@ job.style.display="none";
 
 }
 
+const registerForm = document.getElementById("registerForm");
+
+if(registerForm){
+
+registerForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let fullName = document.getElementById("fullName").value.trim();
+let email = document.getElementById("email").value.trim();
+let branch = document.getElementById("branch").value.trim();
+let year = document.getElementById("year").value.trim();
+let password = document.getElementById("password").value.trim();
+
+if(fullName=="" || email=="" || branch=="" || year=="" || password==""){
+
+alert("Please Fill All Fields");
+return;
+
+}
+
+if(password.length < 8){
+
+alert("Password must be at least 8 characters.");
+return;
+
+}
+
+alert("Registration Successful!");
+
+registerForm.reset();
+
+});
+
+}
+
+//login script code
+
+const loginForm = document.getElementById("loginForm");
+
+if(loginForm){
+
+loginForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let email = document.getElementById("email").value.trim();
+let password = document.getElementById("password").value.trim();
+
+if(email=="" || password==""){
+
+alert("Please Fill All Fields");
+return;
+
+}
+
+if(password.length < 8){
+
+alert("Password must be at least 8 characters.");
+return;
+
+}
+
+alert("Login Successful!");
+
+loginForm.reset();
+
+});
+
+}
