@@ -102,12 +102,19 @@ hiddenElements.forEach(el => observer.observe(el));
 
 window.addEventListener("load", function(){
 
-    const loader = document.getElementById("loader");
+setTimeout(function(){
 
-    loader.style.display = "none";
+const loader = document.getElementById("loader");
+
+if(loader){
+
+loader.style.display = "none";
+
+}
+
+},2000);
 
 });
-
 // Hero Slider
 
 const hero = document.querySelector(".hero");
