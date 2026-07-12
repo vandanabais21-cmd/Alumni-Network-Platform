@@ -38,6 +38,15 @@ nav a:hover{
     color:gold;
 }
 
+/* Hamburger Menu */
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color:white;
+}
+
 .about-hero{
     height:350px;
     background:linear-gradient(rgba(30,58,138,0.7),rgba(30,58,138,0.7)),
@@ -210,14 +219,28 @@ footer{
 
 @media(max-width:768px){
 
+    .menu-toggle{
+        display:block;
+    }
+
     nav{
-        flex-direction:column;
-        gap:15px;
+        flex-wrap:wrap;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 20px;
     }
 
     nav ul{
+        display:none;
+        width:100%;
         flex-direction:column;
         text-align:center;
+        margin-top:15px;
+    }
+
+    nav ul.active{
+        display:flex;
     }
 
     .about-hero h1{

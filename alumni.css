@@ -49,7 +49,14 @@ nav a{
 nav a:hover{
     color:#ffd700;
 }
+/* Hamburger Menu */
 
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color:white;
+}
 /* ===========================
    Page Heading
 =========================== */
@@ -192,64 +199,43 @@ footer p{
 /* ===========================
    Responsive
 =========================== */
+@media(max-width:768px){
 
-@media(max-width:992px){
+    .menu-toggle{
+        display:block;
+    }
 
     nav{
-
-        flex-direction:column;
-        gap:15px;
+        flex-wrap:wrap;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 20px;
     }
 
     nav ul{
-
-        flex-wrap:wrap;
-        justify-content:center;
+        display:none;
+        width:100%;
+        flex-direction:column;
+        text-align:center;
+        margin-top:15px;
     }
 
-    #searchInput{
-
-        width:80%;
+    nav ul.active{
+        display:flex;
     }
-
-}
-
-@media(max-width:768px){
 
     .directory{
-
         padding:30px;
     }
 
     .alumni-card{
-
         width:100%;
         max-width:350px;
     }
 
     #searchInput{
-
         width:95%;
-    }
-
-}
-
-@media(max-width:480px){
-
-    nav{
-
-        padding:15px;
-    }
-
-    nav ul{
-
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .directory h1{
-
-        font-size:28px;
     }
 
 }

@@ -19,8 +19,9 @@ body{
    Navbar
 =========================== */
 
+
 nav{
-    background:#1e3a8a;
+     background:#1e3a8a;
     color:white;
     display:flex;
     justify-content:space-between;
@@ -54,6 +55,17 @@ nav a{
 
 nav a:hover{
     color:#ffd700;
+}
+
+/* Hamburger Menu */
+
+.menu-toggle{
+
+display:none;
+font-size:30px;
+cursor:pointer;
+color:white;
+
 }
 
 /* ===========================
@@ -368,4 +380,55 @@ footer p{
 .event-card h3{
     color:#1e3a8a;
     margin-bottom:10px;
+}
+
+/* ===========================
+   Mobile Navbar
+=========================== */
+
+@media(max-width:768px){
+    .menu-toggle{
+        display:block;
+        font-size:30px;
+        cursor:pointer;
+        color:red;
+    }
+
+    .menu-toggle{
+        display:block !important;
+        color:red !important;
+        font-size:40px !important;
+        background:yellow !important;
+        padding:10px;
+    }
+
+    nav{
+
+        flex-wrap:wrap;
+        padding:15px 20px;
+
+    }
+
+    nav ul{
+
+        display:none;
+        width:100%;
+        flex-direction:column;
+        text-align:center;
+        margin-top:15px;
+
+    }
+
+    nav ul.active{
+
+        display:flex;
+
+    }
+
+    nav button{
+
+         margin-top:15px;
+
+    }
+
 }

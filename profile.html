@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="profile.css">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Alumni Network</h2>
+
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+
+    <ul id="navLinks">
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="jobs.html">Jobs</a></li>
+
+        <li><a href="events.html">Events</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+
+        <li><a href="profile.html">Profile</a></li>
+
+        <li><a href="login.html" id="logoutBtn">Logout</a></li>
+
+    </ul>
+
+</nav>
+
+    <section class="profile">
+
+        <h1>My Profile</h1>
+
+        <div class="profile-card">
+
+            <img src="images/vandana.png.png" alt="Profile Photo">
+
+            <h2 id="profileName"></h2>
+
+            <p><strong>Email :</strong> <span id="profileEmail"></span></p>
+
+            <p><strong>Branch :</strong> <span id="profileBranch"></span></p>
+
+            <p><strong>Passout Year :</strong> <span id="profileYear"></span></p>
+
+            <button id="editBtn">Edit Profile</button>
+
+
+            <div id="editForm" style="display:none; margin-top:20px;">
+
+                <input type="text" id="editName" placeholder="Full Name">
+
+                <br><br>
+
+                <input type="text" id="editBranch" placeholder="Branch">
+
+                <br><br>
+
+                <input type="number" id="editYear" placeholder="Passout Year">
+
+                <br><br>
+
+                <button id="saveBtn">Save Changes</button>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="profile.js"></script>
+    <script src="navbar.js"></script>
+</body>
+
+</html>

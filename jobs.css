@@ -49,6 +49,15 @@ nav a:hover{
     color:#ffd700;
 }
 
+/* Hamburger Menu */
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color:white;
+}
+
 /* ===========================
    Jobs Section
 =========================== */
@@ -157,23 +166,37 @@ footer{
 
 @media(max-width:768px){
 
-nav{
-flex-direction:column;
-gap:15px;
-}
+    .menu-toggle{
+        display:block;
+    }
 
-nav ul{
-flex-direction:column;
-text-align:center;
-}
+    nav{
+        flex-wrap:wrap;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 20px;
+    }
 
-#jobSearch{
-width:95%;
-}
+    nav ul{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        text-align:center;
+        margin-top:15px;
+    }
 
-.job-box{
-width:100%;
-max-width:350px;
-}
+    nav ul.active{
+        display:flex;
+    }
+
+    #jobSearch{
+        width:95%;
+    }
+
+    .job-box{
+        width:100%;
+        max-width:350px;
+    }
 
 }
