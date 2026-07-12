@@ -9,6 +9,10 @@
 </head>
 <body>
 
+    <div id="loader">
+        <div class="spinner"></div>
+        <h2>Loading Alumni Network...</h2>
+    </div>
     <nav>
         <h2>Alumni Network</h2>
         <div class="menu-toggle" id="menuToggle">
@@ -44,37 +48,40 @@
         <button id="darkBtn">🌙 Dark Mode</button>
     </nav>
 
-    <section class="hero">
+   <section class="hero">
+
+        <div class="hero-overlay"></div>
 
         <h1>Connect Students & Alumni</h1>
 
         <p>
-        Build your professional network and discover career opportunities.
+            Build your professional network and discover career opportunities.
         </p>
+
         <button>Join Now</button>
 
     </section>
     <!-- Statistics Section -->
 
-<section class="stats">
+<section class="stats hidden">
 
     <div class="card">
-        <h2>500+</h2>
+        <h2 class="counter" data-target="500">0</h2>
         <p>Alumni</p>
     </div>
 
     <div class="card">
-        <h2>200+</h2>
+        <h2 class="counter" data-target="200">0</h2>
         <p>Jobs Posted</p>
     </div>
 
     <div class="card">
-        <h2>100+</h2>
+        <h2 class="counter" data-target="100">0</h2>
         <p>Events</p>
     </div>
 
     <div class="card">
-        <h2>1000+</h2>
+        <h2 class="counter" data-target="1000">0</h2>
         <p>Students Connected</p>
     </div>
 
@@ -83,7 +90,7 @@
 
 <!-- Success Stories -->
 
-<section class="success">
+<section class="success hidden">
 
     <h1>Alumni Success Stories</h1>
 
@@ -107,7 +114,7 @@
     </div>
 
 </section>
-<section class="jobs">
+<section class="jobs hidden">
 
     <h1>Latest Jobs</h1>
 
@@ -131,7 +138,24 @@
     </div>
 
 </section>
-<section class="events">
+<section class="testimonials">
+
+    <h1>What Our Alumni Say</h1>
+
+    <div class="testimonial-box">
+
+        <p id="testimonialText">
+            "This platform helped me connect with alumni and get my dream job."
+        </p>
+
+        <h3 id="testimonialName">
+            - Rahul Sharma
+        </h3>
+
+    </div>
+
+</section>
+<section class="events hidden">
 
     <h1>Upcoming Events</h1>
 
@@ -158,6 +182,8 @@
     <p>© 2026 All Rights Reserved</p>
 
 </footer>
+<button id="topBtn">⬆</button>
+
 <script src="index.js"></script>
 <script src="navbar.js"></script>
 </body>
