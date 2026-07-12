@@ -2,7 +2,9 @@
 <html>
 <head>
     <title>Dashboard</title>
+    
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -32,12 +34,24 @@
 
         <li><a href="#" id="logoutBtn">Logout</a></li>
 
+        <li>
+            <a href="#" id="notificationBtn">
+                🔔 <span id="notificationCount">0</span>
+            </a>
+        </li>
         <li><a href="chatbot.html">AI Assistant</a></li>
 
     </ul>
 
 </nav>
 
+<div id="notificationBox" style="display:none;">
+
+    <h3>Notifications</h3>
+
+    <ul id="notificationList"></ul>
+
+</div>
 
 <section class="dashboard">
 
@@ -46,22 +60,26 @@
     <div class="dashboard-container">
 
         <div class="dashboard-card">
-            <h2>500+</h2>
-            <p>Registered Alumni</p>
+            <h2 id="jobCount">0</h2>
+            <p>Applied Jobs</p>
         </div>
 
         <div class="dashboard-card">
-            <h2>120+</h2>
-            <p>Available Jobs</p>
+            <h2 id="eventCount">0</h2>
+            <p>Registered Events</p>
         </div>
 
         <div class="dashboard-card">
-            <h2>25+</h2>
-            <p>Upcoming Events</p>
+            <h2>100%</h2>
+            <p>Profile Completed</p>
         </div>
 
     </div>
+    <div class="chart-box">
 
+        <canvas id="dashboardChart"></canvas>
+
+    </div>
 </section>
 
 <script src="dashboard.js"></script>

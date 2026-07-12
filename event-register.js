@@ -15,8 +15,12 @@ registerBtn.addEventListener("click", function(){
 
     alert("🎉 Event Registration Successful!");
 
-    localStorage.setItem("eventUser", name);
+    let events = Number(localStorage.getItem("events")) || 0;
 
+    events++;
+
+    localStorage.setItem("events", events);
+   
     window.location.href="events.html";
 
 });

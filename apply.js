@@ -17,8 +17,11 @@ applyBtn.addEventListener("click", function(){
 
     alert("Application Submitted Successfully! 🎉");
 
-    localStorage.setItem("jobApplicant", name);
+   let jobs = Number(localStorage.getItem("jobs")) || 0;
 
+    jobs++;
+
+    localStorage.setItem("jobs", jobs);
     window.location.href="jobs.html";
 
 });
