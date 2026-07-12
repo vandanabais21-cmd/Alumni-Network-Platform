@@ -40,7 +40,7 @@ password: password
 
 localStorage.setItem("user", JSON.stringify(user));
 
-alert("Registration Successful!");
+showToast("Registration Successful!");
 
 registerForm.reset();
 

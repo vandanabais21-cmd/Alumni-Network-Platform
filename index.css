@@ -641,5 +641,34 @@ transform:rotate(360deg);
 width:95%;
 
 }
+}
+
+/* ===========================
+   Visitor Counter
+=========================== */
+
+.visitor-counter{
+
+    text-align:center;
+
+    padding:50px;
+
+    background:#ffffff;
+
+}
+
+.visitor-counter h2{
+
+    color:#1e3a8a;
+
+    margin-bottom:15px;
+
+}
+
+.visitor-counter h1{
+
+    font-size:55px;
+
+    color:#ff6600;
 
 }

@@ -31,7 +31,7 @@ if(savedUser &&
 savedUser.email===email &&
 savedUser.password===password){
 
-alert("Login Successful!");
+showToast("Login Successful!");
 
 window.location.href="dashboard.html";
 

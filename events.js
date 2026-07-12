@@ -6,7 +6,7 @@ registerButtons.forEach(button => {
 
 button.addEventListener("click", function(){
 
-alert("Event Registration Successful!");
+showToast("Event Registration Successful!");
 
 });
 

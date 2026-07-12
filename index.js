@@ -224,3 +224,27 @@ testimonialName.innerText =
 testimonials[testimonialIndex].name;
 
 },4000);
+
+// Visitor Counter
+
+const visitCount = document.getElementById("visitCount");
+
+if(visitCount){
+
+    let count = localStorage.getItem("visitCount");
+
+    if(count == null){
+
+        count = 1;
+
+    }else{
+
+        count = Number(count) + 1;
+
+    }
+
+    localStorage.setItem("visitCount", count);
+
+    visitCount.innerText = count;
+
+}

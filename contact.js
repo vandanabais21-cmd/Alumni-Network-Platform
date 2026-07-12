@@ -18,7 +18,7 @@ alert("Please Fill All Fields");
 
 }else{
 
-alert("Message Sent Successfully");
+showToast("Message Sent Successfully");
 
 form.reset();
 
