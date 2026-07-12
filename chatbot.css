@@ -96,3 +96,39 @@ background:#dc3545;
 #clearBtn:hover{
 background:#b52a37;
 }
+
+#chatBox button{
+
+    margin-top:8px;
+    padding:8px 14px;
+    border:none;
+    border-radius:5px;
+    background:#1e3a8a;
+    color:white;
+    cursor:pointer;
+
+}
+
+#chatBox button:hover{
+
+    background:#10286d;
+
+}
+
+#micBtn{
+
+    padding:10px 15px;
+    border:none;
+    border-radius:5px;
+    background:#28a745;
+    color:white;
+    cursor:pointer;
+    margin-right:5px;
+
+}
+
+#micBtn:hover{
+
+    background:#1e7e34;
+
+}
