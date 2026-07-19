@@ -112,3 +112,39 @@ if(savedImage){
     profileImage.src = savedImage;
 
 }
+
+const uploadBtn = document.getElementById("uploadResumeBtn");
+
+const resumeFile = document.getElementById("resumeFile");
+
+const resumeStatus = document.getElementById("resumeStatus");
+
+if(uploadBtn){
+
+    uploadBtn.addEventListener("click", function(){
+
+        if(resumeFile.files.length > 0){
+
+            localStorage.setItem("resumeName", resumeFile.files[0].name);
+
+            resumeStatus.innerHTML =
+            "✅ Resume Uploaded: " + resumeFile.files[0].name;
+
+        }else{
+
+            alert("Please select a resume.");
+
+        }
+
+    });
+
+}
+
+const savedResume = localStorage.getItem("resumeName");
+
+if(savedResume){
+
+    resumeStatus.innerHTML =
+    "✅ Resume Uploaded: " + savedResume;
+
+}

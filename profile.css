@@ -192,3 +192,39 @@ background:darkgreen;
     margin-top:15px;
 
 }
+
+/* Certificate Section */
+
+.certificate-box{
+
+    margin-top:25px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+
+}
+
+.certificate-box h3{
+
+    color:#1e3a8a;
+
+}
+
+#certificateList{
+
+    list-style:none;
+    padding:0;
+    margin-top:15px;
+
+}
+
+#certificateList li{
+
+    padding:10px;
+    margin-bottom:10px;
+    background:#f4f7fc;
+    border-left:5px solid #1e3a8a;
+    border-radius:5px;
+
+}

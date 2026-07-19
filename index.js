@@ -112,7 +112,7 @@ loader.style.display = "none";
 
 }
 
-},2000);
+},500);
 
 });
 // Hero Slider
@@ -255,3 +255,4 @@ if(visitCount){
     visitCount.innerText = count;
 
 }
+
