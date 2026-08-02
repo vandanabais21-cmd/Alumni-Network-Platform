@@ -9,36 +9,95 @@
 
 <body>
 
-<h1 style="text-align:center;">Admin Dashboard</h1>
+<header>
+
+    <h1>Admin Dashboard</h1>
+
+    <button id="logoutAdmin">Logout</button>
+
+</header>
+
+<!-- Statistics -->
 
 <div class="dashboard">
 
-<div class="card">
-<h2>Total Users</h2>
-<h1 id="users">0</h1>
+    <div class="card">
+        <h2>Total Users</h2>
+        <h1 id="users">0</h1>
+    </div>
+
+    <div class="card">
+        <h2>Total Jobs</h2>
+        <h1 id="jobs">0</h1>
+    </div>
+
+    <div class="card">
+        <h2>Total Applications</h2>
+        <h1 id="applications">0</h1>
+    </div>
+
+    <div class="card">
+        <h2>Total Events</h2>
+        <h1 id="events">0</h1>
+    </div>
+
+    <div class="card">
+        <h2>Total Feedback</h2>
+        <h1 id="feedback">0</h1>
+    </div>
+
 </div>
 
-<div class="card">
-<h2>Total Jobs</h2>
-<h1 id="jobs">0</h1>
-</div>
+<!-- Users -->
 
-<div class="card">
-<h2>Total Applications</h2>
-<h1 id="applications">0</h1>
-</div>
+<section class="users-section">
 
-<div class="card">
-<h2>Total Events</h2>
-<h1 id="events">0</h1>
-</div>
+    <h2>All Registered Users</h2>
 
-<div class="card">
-<h2>Total Feedback</h2>
-<h1 id="feedback">0</h1>
-</div>
+    <div id="usersContainer"></div>
 
-</div>
+</section>
+
+<hr>
+
+<section class="jobs-section">
+
+    <h2>All Jobs</h2>
+
+    <div id="jobsContainer"></div>
+
+</section>
+
+<hr>
+
+<section class="applications-section">
+
+    <h2>All Applications</h2>
+
+    <div id="applicationsContainer"></div>
+
+</section>
+
+
+<hr>
+
+<section class="events-section">
+
+    <h2>All Events</h2>
+
+    <div id="eventsContainer"></div>
+
+</section>
+
+<hr>
+
+<section class="feedback-section">
+
+    <h2>All Feedback</h2>
+
+    <div id="feedbackContainer"></div>
+
+</section>
 
 <script src="admin.js"></script>
 
