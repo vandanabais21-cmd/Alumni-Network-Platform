@@ -10,6 +10,18 @@ router.post("/register", async (req, res) => {
 
         const { fullName, email, password, branch, passoutYear } = req.body;
 
+        // Check Existing User
+
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+
+            return res.status(400).json({
+                message: "Email already registered"
+            });
+
+        }
+
         const newUser = new User({
             fullName,
             email,

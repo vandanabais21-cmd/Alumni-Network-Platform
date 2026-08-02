@@ -9,7 +9,21 @@ router.post("/apply", async (req, res) => {
     try {
 
         const { userId, jobId } = req.body;
+        
+        // Check if already applied
 
+        const existingApplication = await Application.findOne({
+            userId,
+            jobId
+        });
+
+        if (existingApplication) {
+
+            return res.status(400).json({
+                message: "You have already applied for this job"
+            });
+
+        }
         const newApplication = new Application({
             userId,
             jobId
