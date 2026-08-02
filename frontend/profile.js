@@ -1,136 +1,192 @@
 console.log("Profile Page");
 
-// Profile Data Show
-const savedUser = JSON.parse(localStorage.getItem("user"));
+// Logged In User
+let savedUser = JSON.parse(localStorage.getItem("user"));
 
-if(savedUser){
+if (!savedUser) {
 
-document.getElementById("profileName").innerHTML = savedUser.fullName;
-
-document.getElementById("profileEmail").innerHTML = savedUser.email;
-
-document.getElementById("profileBranch").innerHTML = savedUser.branch;
-
-document.getElementById("profileYear").innerHTML = savedUser.year;
-
-}else{
-
-alert("Please Login First!");
-
-window.location.href = "login.html";
+    alert("Please Login First!");
+    window.location.href = "login.html";
 
 }
+
+// Load Profile From Backend
+fetch(`http://localhost:5000/api/auth/profile/${savedUser._id}`)
+
+.then(response => response.json())
+
+.then(user => {
+
+    // Latest data localStorage me bhi update kar do
+    savedUser = user;
+    localStorage.setItem("user", JSON.stringify(user));
+
+    document.getElementById("profileName").innerHTML = user.fullName;
+    document.getElementById("profileEmail").innerHTML = user.email;
+    document.getElementById("profileBranch").innerHTML = user.branch;
+    document.getElementById("profileYear").innerHTML = user.passoutYear;
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+    alert("Unable to Load Profile");
+
+});
+
 
 // Logout
 const logoutBtn = document.getElementById("logoutBtn");
 
-if(logoutBtn){
+if (logoutBtn) {
 
-logoutBtn.addEventListener("click", function(e){
+    logoutBtn.addEventListener("click", function (e) {
 
-e.preventDefault();
+        e.preventDefault();
 
-localStorage.removeItem("user");
+        localStorage.removeItem("user");
 
-alert("Logout Successful!");
+        alert("Logout Successful!");
 
-window.location.href = "login.html";
+        window.location.href = "login.html";
 
-});
+    });
 
 }
 
-// edit button
 
+// Edit Button
 const editBtn = document.getElementById("editBtn");
 const editForm = document.getElementById("editForm");
 const saveBtn = document.getElementById("saveBtn");
 
-if(editBtn){
+if (editBtn) {
 
-editBtn.addEventListener("click", function(){
+    editBtn.addEventListener("click", function () {
 
-editForm.style.display = "block";
+        editForm.style.display = "block";
 
-document.getElementById("editName").value = savedUser.fullName;
-document.getElementById("editBranch").value = savedUser.branch;
-document.getElementById("editYear").value = savedUser.year;
+        document.getElementById("editName").value = savedUser.fullName;
+        document.getElementById("editBranch").value = savedUser.branch;
+        document.getElementById("editYear").value = savedUser.passoutYear;
 
-});
-
-}
-
-if(saveBtn){
-
-saveBtn.addEventListener("click", function(){
-
-savedUser.fullName = document.getElementById("editName").value;
-
-savedUser.branch = document.getElementById("editBranch").value;
-
-savedUser.year = document.getElementById("editYear").value;
-
-localStorage.setItem("user", JSON.stringify(savedUser));
-
-alert("Profile Updated Successfully!");
-
-location.reload();
-
-});
+    });
 
 }
 
+
+// Save Changes
+if (saveBtn) {
+
+    saveBtn.addEventListener("click", function () {
+
+        fetch(`http://localhost:5000/api/auth/profile/${savedUser._id}`, {
+
+            method: "PUT",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                fullName: document.getElementById("editName").value,
+
+                branch: document.getElementById("editBranch").value,
+
+                passoutYear: Number(document.getElementById("editYear").value)
+
+            })
+
+        })
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            alert(data.message);
+
+            savedUser = data.user;
+
+            localStorage.setItem("user", JSON.stringify(savedUser));
+
+            location.reload();
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+            alert("Update Failed!");
+
+        });
+
+    });
+
+}
+
+
+// Profile Image
 const imageUpload = document.getElementById("imageUpload");
 const profileImage = document.getElementById("profileImage");
 
-imageUpload.addEventListener("change", function(){
+if (imageUpload) {
 
-    const file = this.files[0];
+    imageUpload.addEventListener("change", function () {
 
-    if(file){
+        const file = this.files[0];
 
-        const reader = new FileReader();
+        if (file) {
 
-        reader.onload = function(e){
+            const reader = new FileReader();
 
-            profileImage.src = e.target.result;
+            reader.onload = function (e) {
 
-            localStorage.setItem("profileImage", e.target.result);
+                profileImage.src = e.target.result;
 
-        };
+                localStorage.setItem("profileImage", e.target.result);
 
-        reader.readAsDataURL(file);
+            };
 
-    }
+            reader.readAsDataURL(file);
 
-});
+        }
+
+    });
+
+}
 
 const savedImage = localStorage.getItem("profileImage");
 
-if(savedImage){
+if (savedImage) {
 
     profileImage.src = savedImage;
 
 }
 
+
+// Resume Upload (Temporary LocalStorage)
 const uploadBtn = document.getElementById("uploadResumeBtn");
-
 const resumeFile = document.getElementById("resumeFile");
-
 const resumeStatus = document.getElementById("resumeStatus");
 
-if(uploadBtn){
+if (uploadBtn) {
 
-    uploadBtn.addEventListener("click", function(){
+    uploadBtn.addEventListener("click", function () {
 
-        if(resumeFile.files.length > 0){
+        if (resumeFile.files.length > 0) {
 
             localStorage.setItem("resumeName", resumeFile.files[0].name);
 
             resumeStatus.innerHTML =
-            "✅ Resume Uploaded: " + resumeFile.files[0].name;
+                "✅ Resume Uploaded: " + resumeFile.files[0].name;
 
-        }else{
+        } else {
 
             alert("Please select a resume.");
 
@@ -142,9 +198,9 @@ if(uploadBtn){
 
 const savedResume = localStorage.getItem("resumeName");
 
-if(savedResume){
+if (savedResume) {
 
     resumeStatus.innerHTML =
-    "✅ Resume Uploaded: " + savedResume;
+        "✅ Resume Uploaded: " + savedResume;
 
 }

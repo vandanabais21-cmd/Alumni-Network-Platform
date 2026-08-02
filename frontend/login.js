@@ -2,47 +2,69 @@ console.log("Login Page");
 
 const loginForm = document.getElementById("loginForm");
 
-if(loginForm){
+if (loginForm) {
 
-loginForm.addEventListener("submit", function(e){
+    loginForm.addEventListener("submit", function (e) {
 
-e.preventDefault();
+        e.preventDefault();
 
-let email = document.getElementById("email").value.trim();
-let password = document.getElementById("password").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
 
-if(email=="" || password==""){
+        if (email === "" || password === "") {
 
-alert("Please Fill All Fields");
-return;
+            alert("Please Fill All Fields");
+            return;
 
-}
+        }
 
-if(password.length < 8){
+        fetch("http://localhost:5000/api/auth/login", {
 
-alert("Password must be at least 8 characters.");
-return;
+            method: "POST",
 
-}
+            headers: {
 
-const savedUser = JSON.parse(localStorage.getItem("user"));
+                "Content-Type": "application/json"
 
-if(savedUser &&
-savedUser.email===email &&
-savedUser.password===password){
+            },
 
-showToast("Login Successful!");
+            body: JSON.stringify({
 
-window.location.href="dashboard.html";
+                email: email,
+                password: password
 
-loginForm.reset();
+            })
 
-}else{
+        })
 
-alert("Invalid Email or Password");
+        .then(response => response.json())
 
-}
+        .then(data => {
 
-});
+            if (data.message === "Login Successful") {
+
+                localStorage.setItem("user", JSON.stringify(data.user));
+
+                alert("Login Successful!");
+
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                alert(data.message);
+
+            }
+
+        })
+
+        .catch(error => {
+
+            console.log(error);
+
+            alert("Login Failed!");
+
+        });
+
+    });
 
 }
